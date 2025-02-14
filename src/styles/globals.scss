@@ -1,6 +1,12 @@
 @use "./tokens" as *;
 @use "./utilities" as *;
 @use "./animations" as *;
+@use "tailwindcss" as *; 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 // Reset and base styles
 * {
