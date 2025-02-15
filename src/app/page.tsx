@@ -8,8 +8,10 @@ import { useTheme } from "../contexts/ThemeContext";
 import logo from "../@content/assets/images/TheDevCasa_Logo@2x.png";
 import ServicesSection from "@/components/ServicesSection";
 import "../styles/page.scss";
-// import OurApproach from "@/components/OurApproach";
+import OurApproach from "@/components/OurApproach";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import Technologies from "@/components/Technologies";
+import Work from "@/components/Work";
 // import WhatWeUse from "@/components/WhatWeUse";
 
 const Page = () => {
@@ -81,8 +83,9 @@ const Page = () => {
             </div>
             <ServicesSection />
             <WhyChooseUs />
-            {/* <OurApproach /> */}
-            {/* <WhatWeUse /> */}
+            <OurApproach />
+            <Technologies />
+            <Work />
         </>
     );
 };
