@@ -1,17 +1,35 @@
-@import "./page.scss";
+@use "sass:color";
+@use "./page";
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Variables
+$primary-color: #45c5af;
+$secondary-color: #13678a;
+$text-color: #272727;
+$background-start: #f9fafb;
+$background-middle: #fdf2f8;
+$background-end: #dafdb9;
+
+// Dark mode colors
+$dark-background: #1a1a1a;
+$dark-text: #ffffff;
 
 .services-section {
     width: 100%;
     min-height: 100vh;
     padding: 2rem;
-    background-color: $background-start;
+    background-color: page.$background-start;
     transition: background-color 0.3s ease;
 
     .dark & {
-        background-color: $dark-background;
+        background-color: page.$dark-background;
     }
 
-    @include mobile {
+    @include page.mobile {
         padding: 1rem;
     }
 
@@ -53,7 +71,7 @@
             margin-bottom: 0.5rem;
 
             .dark & {
-                color: $dark-text;
+                color: page.$dark-text;
             }
         }
 
@@ -93,7 +111,7 @@
             svg {
                 width: 1.25rem;
                 height: 1.25rem;
-                color: $primary-color;
+                color: page.$primary-color;
             }
         }
 
@@ -154,7 +172,7 @@
                 left: 15rem;
             }
 
-            @include mobile {
+            @include page.mobile {
                 &:first-child {
                     left: 1rem;
                 }
