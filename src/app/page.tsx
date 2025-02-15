@@ -1,12 +1,22 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
-import ThemeToggle from "@/components/ThemeToggle";
+
+import React from "react";
+import { Moon, Sun } from "lucide-react";
 import Image from "next/image";
+import { useTheme } from "../contexts/ThemeContext";
 import logo from "../@content/assets/images/TheDevCasa_Logo@2x.png";
 import ServicesSection from "@/components/ServicesSection";
 import "../styles/page.scss";
 
 const Page = () => {
+    const { theme, toggleTheme } = useTheme();
+
+    // Add theme class to body
+    React.useEffect(() => {
+        document.documentElement.classList.toggle("dark", theme === "dark");
+    }, [theme]);
+
     return (
         <>
             <div className="page-container">
@@ -18,18 +28,20 @@ const Page = () => {
                 {/* Navbar */}
                 <nav className="navbar">
                     <div className="nav-content">
-                        <ThemeToggle />
-                        <span>EN</span>
-                        <span>About</span>
-                        <span>Work</span>
-                        <span>Pricing</span>
+                        <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
+                            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+                        </button>
+                        <span className="nav-text">EN</span>
+                        <span className="nav-text">About</span>
+                        <span className="nav-text">Work</span>
+                        <span className="nav-text">Pricing</span>
                         <button className="get-started">
                             <div className="icon-container">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                             </div>
-                            <p>GET STARTED</p>
+                            <p className="text">GET STARTED</p>
                         </button>
                     </div>
                 </nav>
@@ -47,13 +59,13 @@ const Page = () => {
                         <div className="button-group">
                             <button className="primary-button">
                                 Let&apos;s talk
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
                             <button className="secondary-button">
                                 Schedule a consultation
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
