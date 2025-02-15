@@ -1,82 +1,68 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import logo from '../@content/assets/images/TheDevCasa_Logo@2x.png'
+"use client";
 
+import Image from "next/image";
+import Link from "next/link";
+import { useTheme } from "../contexts/ThemeContext";
+import logo from "../@content/assets/images/TheDevCasa_Logo@2x.png";
+import "../styles/footer.scss";
+
+// Fix too since it's part of the home page
 const Footer = () => {
-  return (
-    <footer className="bg-gray-100 py-8 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-4 gap-8">
-          {/* TheDevCasa Column */}
-          <div>
-            <h3 className="text-[#13678A] font-semibold mb-2 text-[18px]">TheDevCasa</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/about" className="text-[18px] text-gray-400 font-normal hover:text-gray-600">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/work" className="text-[18px] text-gray-400 font-normal hover:text-gray-600">
-                  Work
-                </Link>
-              </li>
-              <li>
-                <Link href="/pricing" className="text-[18px] text-gray-400 font-normal  hover:text-gray-600">
-                  Pricing
-                </Link>
-              </li>
-            </ul>
-          </div>
+    const { theme } = useTheme();
 
-          {/* Legal Column */}
-          <div>
-            <h3 className="text-[#13678A] font-semibold mb-2 text-[18px]">Legal</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/privacy" className="text-[18px] text-gray-400 font-normal hover:text-gray-600">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/legal" className="text-[18px] text-gray-400 font-normal hover:text-gray-600">
-                  Legal Information
-                </Link>
-              </li>
-              <li>
-                <Link href="/cookies" className="text-[18px] text-gray-400 font-normal hover:text-gray-600">
-                  Cookies
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className=" text-[18px] text-gray-400 font-normalhover:text-gray-600">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+    return (
+        <footer className={`footer ${theme === "dark" ? "dark" : ""}`}>
+            <div className="container">
+                <div className="footer-grid">
+                    {/* TheDevCasa Column */}
+                    <div className="footer-column">
+                        <h3>TheDevCasa</h3>
+                        <ul>
+                            <li>
+                                <Link href="/about">About</Link>
+                            </li>
+                            <li>
+                                <Link href="/work">Work</Link>
+                            </li>
+                            <li>
+                                <Link href="/pricing">Pricing</Link>
+                            </li>
+                        </ul>
+                    </div>
 
-          {/* Empty Columns for Spacing */}
-          <div></div>
+                    {/* Legal Column */}
+                    <div className="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li>
+                                <Link href="/privacy">Privacy Policy</Link>
+                            </li>
+                            <li>
+                                <Link href="/legal">Legal Information</Link>
+                            </li>
+                            <li>
+                                <Link href="/cookies">Cookies</Link>
+                            </li>
+                            <li>
+                                <Link href="/contact">Contact</Link>
+                            </li>
+                        </ul>
+                    </div>
 
-          {/* Logo and Copyright */}
-          <div className="flex flex-row items-center justify-between">
-            <div className="text-gray-400">
-              TheDevCasa 2024 ©
+                    {/* Empty Columns for Spacing */}
+                    <div className="footer-column"></div>
+
+                    {/* Logo and Copyright */}
+                    <div className="footer-column">
+                        <div className="logo-copyright">
+                            <div className="copyright">TheDevCasa 2024 ©</div>
+                            <Image src={logo || "/placeholder.svg"} alt="TheDevCasa Logo" width={60} height={60} className="logo" />
+                        </div>
+                    </div>
+                </div>
             </div>
-            <Image
-              src={logo} // Make sure to update this path to your actual logo path
-              alt="TheDevCasa Logo"
-              width={60}
-              height={60}
-              className=""
-            />
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+        </footer>
+    );
 };
 
 export default Footer;

@@ -50,7 +50,7 @@ $desktop: 1024px;
 
 // Main Styles
 .page-container {
-    min-height: 100vh;
+    min-height: max-content;
     background: linear-gradient(
         to right,
         $background-start,
@@ -81,10 +81,12 @@ $desktop: 1024px;
     top: -2rem;
     left: 3.5rem;
     z-index: 20;
+    margin-top: 2rem;
 
     @include mobile {
         top: -1rem;
         left: 1rem;
+        margin-top: 3rem;
     }
 }
 
@@ -92,7 +94,7 @@ $desktop: 1024px;
     position: fixed;
     top: 4rem;
     right: 9rem;
-    z-index: 10;
+    z-index: 20;
     background: white;
     border-radius: 9999px;
     padding: 0.5rem 1.25rem;
@@ -189,10 +191,13 @@ $desktop: 1024px;
     margin: 0 0.5rem;
     padding: 0 1.5rem;
     padding-top: 3rem;
+    padding-bottom: 3rem;
 
     @include mobile {
         padding: 6rem 1rem 2rem 1rem;
         margin: 0;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
 
     .content-wrapper {
