@@ -8,6 +8,9 @@ import { useTheme } from "../contexts/ThemeContext";
 import logo from "../@content/assets/images/TheDevCasa_Logo@2x.png";
 import ServicesSection from "@/components/ServicesSection";
 import "../styles/page.scss";
+// import OurApproach from "@/components/OurApproach";
+import WhyChooseUs from "@/components/WhyChooseUs";
+// import WhatWeUse from "@/components/WhatWeUse";
 
 const Page = () => {
     const { theme, toggleTheme } = useTheme();
@@ -77,6 +80,9 @@ const Page = () => {
                 <div className="bottom-blob" />
             </div>
             <ServicesSection />
+            <WhyChooseUs />
+            {/* <OurApproach /> */}
+            {/* <WhatWeUse /> */}
         </>
     );
 };

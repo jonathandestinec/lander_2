@@ -1,11 +1,6 @@
 @use "sass:color";
 @use "./page";
 
-// Breakpoints
-$mobile: 640px;
-$tablet: 768px;
-$desktop: 1024px;
-
 // Variables
 $primary-color: #45c5af;
 $secondary-color: #13678a;
@@ -17,6 +12,11 @@ $background-end: #dafdb9;
 // Dark mode colors
 $dark-background: #1a1a1a;
 $dark-text: #ffffff;
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
 
 .services-section {
     width: 100%;
